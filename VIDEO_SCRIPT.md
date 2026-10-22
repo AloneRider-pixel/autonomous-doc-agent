@@ -35,8 +35,8 @@
 
 Real issue hit while building this (test `test_dirty_json_recovery` encodes it):
 
-- **Issue:** LLMs rarely return bare JSON. Replies come back wrapped in ```json fences with
-  prose around them, and a strict `json.loads` on the whole reply throws - the first version
+- **Issue:** LLMs rarely return bare JSON. Replies come back wrapped in json code fences with
+  prose around them, and a strict json.loads on the whole reply throws - the first version
   of the planner crashed on exactly this.
 - **Root cause:** the parser assumed the whole reply was the payload. Chat models treat the
   JSON as content inside a conversational message.
